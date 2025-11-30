@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, render_template
-from fc26_bot import answer_question
+from .fc26_bot import answer_question
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
