@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FC26 Chatbot</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>FC26 Player Chatbot</h1>
+      <p class="subtitle">
+        Ask things like: "What player is the best?" or "Who are the top 10 best players?"
+      </p>
+
+      <div id="chat-window"></div>
+
+      <form id="chat-form">
+        <input
+          id="user-input"
+          type="text"
+          placeholder="Type your question about FC26 players..."
+          autocomplete="off"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("chat-form");
+      const input = document.getElementById("user-input");
+      const chatWindow = document.getElementById("chat-window");
+
+      function addMessage(sender, text) {
+        const div = document.createElement("div");
+        div.className = "message " + sender;
+        div.textContent = text;
+        chatWindow.appendChild(div);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+
+        addMessage("user", text);
+        input.value = "";
+        input.focus();
+
+        try {
+          const resp = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text }),
+          });
+
+          const data = await resp.json();
+          addMessage("bot", data.reply);
+        } catch (err) {
+          addMessage("bot", "Error talking to the server.");
+          console.error(err);
+        }
+      });
+    </script>
+  </body>
+</html>

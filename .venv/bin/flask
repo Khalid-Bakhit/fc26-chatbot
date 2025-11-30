@@ -1,0 +1,7 @@
+#!/Users/khalid/SDS/System_1_Intro_to_Computing/Personal_Projects/fc26-chatbot/.venv/bin/python
+import sys
+from flask.cli import main
+if __name__ == '__main__':
+    if sys.argv[0].endswith('.exe'):
+        sys.argv[0] = sys.argv[0][:-4]
+    sys.exit(main())
