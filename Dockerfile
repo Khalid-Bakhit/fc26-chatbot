@@ -18,7 +18,7 @@ COPY data/ /app/data/
 ENV PYTHONUNBUFFERED=1
 
 # Expose port
-EXPOSE 5000
+EXPOSE 5001
 
 # Default command: use gunicorn to serve the Flask app
-CMD ["gunicorn", "src.app:app", "--bind", "0.0.0.0:5000"]
+CMD ["gunicorn", "src.app:app", "--bind", "0.0.0.0:5001"]
