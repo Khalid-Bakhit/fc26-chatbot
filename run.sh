@@ -7,4 +7,4 @@ IMAGE_NAME="fc26-chatbot"
 docker build -t $IMAGE_NAME .
 
 # Run the container
-docker run --rm -p 5000:5000 $IMAGE_NAME
+docker run --rm -p 5001:5001 $IMAGE_NAME
