@@ -126,5 +126,7 @@ https://github.com/Khalid-Bakhit/fc26-chatbot
 Public Cloud App (Azure VM):
 http://20.151.75.201:5001
 
-8) Academic Integrity:
+8) Academic Integrity & Credits:
 ChatGPT model 5.1 was used to help create The Final Case
+
+FC26 CSV file was acquired through Kaggle and formed by user: Rovnev
