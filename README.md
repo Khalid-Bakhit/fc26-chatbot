@@ -40,7 +40,7 @@ Architecture Diagram:
  │ Player Statistics Data │
  └────────────────────────┘
 
-(Click the code button in the top right to see the proper structure of the architecture diagram)
+(Click the code button in the top left to see the proper structure of the architecture diagram)
 
  
  Entire system packaged in Docker → deployed on Azure VM
